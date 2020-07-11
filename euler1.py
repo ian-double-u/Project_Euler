@@ -5,4 +5,4 @@ for i in range(1,1000):
     elif i % 5 == 0:
         multiples.append(i)
         
-print(sum(multiples))
+print(f'Ans = {sum(multiples)}')
