@@ -15,4 +15,4 @@ for z in range(0,len(A)):
     if A[z] == True:
         counter.append(z)
     
-print(counter[10002]) # counts 0 and 1 for some reason
+print(f'Ans = {counter[10002]}') # counts 0 and 1 for some reason
