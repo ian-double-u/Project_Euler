@@ -1,3 +1,6 @@
+# Project Euler Problem 11
+
+# 20x20 Grid of Numbers
 string = """08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
 81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65
@@ -19,6 +22,7 @@ string = """08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48"""
 
+# Turn string into array - - -
 numbers = string.split()
 ints = []
 
@@ -29,28 +33,53 @@ for i in numbers:
         ints.append(int(i))
 
 grid = [list(ints[i*20:i*20 + 20]) for i in range(0,20)]
+# - - -
 
+# How many adjacent numbers to look at - - -
+m = 4 
+# - - -
+
+# Generate all adjacent products - - -
 products = []
 
 for i in range(0,20): # array[row][column]
     for j in range(0,20):
         # Horizontal ; 
         try:
-            products.append(grid[i][j]*grid[i][j+1]*grid[i][j+2]*grid[i][j+3])
+            x = 1
+            for k in range(0,m):
+                x *= grid[i][j+k]
+            
+            products.append(x)
+            
         except:
             pass
         
         # Vertical ; 
         try:
-            products.append(grid[i][j]*grid[i+1][j]*grid[i+2][j]*grid[i+3][j])
+            x = 1
+            for k in range(0,m):
+                x *= grid[i+k][j]
+            
+            products.append(x)
+            
         except:
             pass
         
         # Diagonal ; 
         try:
-            products.append(grid[i][j]*grid[i+1][j+1]*grid[i+2][j+2]*grid[i+3][j+3])
-            products.append(grid[i][j]*grid[i-1][j+1]*grid[i-2][j+2]*grid[i-3][j+3])
+            x = 1
+            y = 1
+            
+            for k in range(0,m):
+                x *= grid[i+k][j+k]
+                y *= grid[i-k][j+k]
+            
+            products.append(x)
+            products.append(y)
+            
         except:
             pass
+# - - -
         
 print(f'Ans = {max(products)}')
