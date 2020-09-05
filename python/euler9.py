@@ -1,3 +1,5 @@
+# Project Euler Problem 9
+
 for i in range(1,1000): # i = a
     for j in range(1,1000): # j = b
         for k in range(1,1000): # k = c
