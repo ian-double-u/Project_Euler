@@ -1,3 +1,5 @@
+# Project Euler Problem 2
+
 fib = [1,2]
 
 def term(a,b): 
