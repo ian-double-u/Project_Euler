@@ -1,9 +1,9 @@
-import numpy as np
+# Project Euler Problem 10
 
 n = 2000000
 A = [True]*n
     
-for i in range(2,int(np.sqrt(n))+1): # Sieve of Eratosthenes
+for i in range(2,int((n)**0.5)+1): # Sieve of Eratosthenes
     if A[i] == True:
         j = i**2
         while j < n:
